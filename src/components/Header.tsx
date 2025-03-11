@@ -1,6 +1,5 @@
 
 import React from 'react';
-import ApiKeySettings from './ApiKeySettings';
 
 const Header = () => {
   return <header className="w-full bg-white shadow-md">
@@ -13,7 +12,6 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-4">
           <div className="text-newsletteria-gray text-sm">Gerador de newsletters</div>
-          <ApiKeySettings />
         </div>
       </div>
     </header>;

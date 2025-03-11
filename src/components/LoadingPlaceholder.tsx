@@ -6,7 +6,7 @@ const LoadingPlaceholder: React.FC = () => {
   return (
     <Card className="w-full">
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-semibold">Gerando Newsletter...</CardTitle>
+        <CardTitle className="text-xl font-semibold">A gerar...</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">

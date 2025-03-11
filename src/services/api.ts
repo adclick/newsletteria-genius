@@ -16,18 +16,9 @@ export interface NewsletterSection {
 }
 
 // API key state - will be entered by the user
-let apiKey = "";
-
-export const setApiKey = (key: string) => {
-  apiKey = key;
-  localStorage.setItem("geminiApiKey", key);
-};
 
 export const getApiKey = () => {
-  if (!apiKey) {
-    apiKey = localStorage.getItem("geminiApiKey") || "";
-  }
-  return apiKey;
+  return import.meta.env.VITE_GEMINI_API_KEY;
 };
 
 export const generateNewsletter = async (topics: string): Promise<Newsletter | null> => {
@@ -106,7 +97,7 @@ export const generateNewsletter = async (topics: string): Promise<Newsletter | n
     
     // Extract JSON from the text content
     // The API might return markdown or additional text, so we need to find and parse the JSON
-    const jsonMatch = textContent.match(/```json\n([\s\S]*?)\n```/) || 
+    const jsonMatch = textContent.match(/```json\n([\s\S]*?)\n```/) ||
                        textContent.match(/{[\s\S]*?}/);
                        
     let newsletterData: Newsletter;
