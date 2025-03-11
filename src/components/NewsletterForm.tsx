@@ -1,26 +1,39 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { generateNewsletter } from '@/services/api';
+import { generateNewsletter, getApiKey } from '@/services/api';
 import { Loader } from 'lucide-react';
 import { toast } from 'sonner';
+
 interface NewsletterFormProps {
   onGenerated: (value: any) => void;
   setIsLoading: (value: boolean) => void;
 }
+
 const NewsletterForm: React.FC<NewsletterFormProps> = ({
   onGenerated,
   setIsLoading
 }) => {
   const [topics, setTopics] = useState<string>('');
   const [generating, setGenerating] = useState<boolean>(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!topics.trim()) {
       toast.warning("Por favor, insira pelo menos um tópico para a newsletter.");
       return;
     }
+
+    // Check if API key is set
+    if (!getApiKey()) {
+      toast.error("Por favor, configure a sua chave da API Gemini nas definições.", {
+        description: "Clique no ícone de definições no canto superior direito."
+      });
+      return;
+    }
+
     setGenerating(true);
     setIsLoading(true);
     try {
@@ -37,6 +50,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
       setIsLoading(false);
     }
   };
+
   return <Card className="w-full">
       <form onSubmit={handleSubmit}>
         <CardHeader>
@@ -44,7 +58,13 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
           <CardDescription>Insira os tópicos que pretende abordar na sua newsletter. Separe múltiplos tópicos com vírgulas.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Textarea placeholder="Ex: Tecnologia empresarial, Inovação no trabalho, Tendências de mercado" className="resize-none h-32" value={topics} onChange={e => setTopics(e.target.value)} disabled={generating} />
+          <Textarea 
+            placeholder="Ex: Tecnologia empresarial, Inovação no trabalho, Tendências de mercado" 
+            className="resize-none h-32" 
+            value={topics} 
+            onChange={e => setTopics(e.target.value)} 
+            disabled={generating} 
+          />
         </CardContent>
         <CardFooter className="flex justify-end">
           <Button type="submit" disabled={generating || !topics.trim()}>
@@ -57,4 +77,5 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({
       </form>
     </Card>;
 };
+
 export default NewsletterForm;

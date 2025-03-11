@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import NewsletterForm from '@/components/NewsletterForm';
 import NewsletterPreview from '@/components/NewsletterPreview';
 import LoadingPlaceholder from '@/components/LoadingPlaceholder';
-import { Newsletter } from '@/services/api';
+import { Newsletter, getApiKey } from '@/services/api';
+import { toast } from 'sonner';
+
 const Index = () => {
   const [newsletter, setNewsletter] = useState<Newsletter | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  
+  useEffect(() => {
+    // Add lang attribute to html tag
+    document.documentElement.lang = 'pt-PT';
+    
+    // Check if API key is present on first load
+    if (!getApiKey()) {
+      toast.info("Configure a sua chave da API Gemini para começar", {
+        description: "Clique no ícone de definições no canto superior direito.",
+        duration: 6000,
+      });
+    }
+  }, []);
+
   return <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
       <main className="flex-1 container mx-auto py-8 px-4 md:px-6">
@@ -30,4 +47,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
