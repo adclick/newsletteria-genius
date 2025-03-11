@@ -48,7 +48,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ onGenerated, setIsLoadi
         <CardHeader>
           <CardTitle>Gerador de Newsletter</CardTitle>
           <CardDescription>
-            Insira os tópicos que você deseja abordar na sua newsletter em português.
+            Insira os tópicos que pretende abordar na sua newsletter em português de Portugal.
             Separe múltiplos tópicos com vírgulas.
           </CardDescription>
         </CardHeader>
@@ -66,7 +66,7 @@ const NewsletterForm: React.FC<NewsletterFormProps> = ({ onGenerated, setIsLoadi
             {generating ? (
               <>
                 <Loader className="mr-2 h-4 w-4 animate-spin" />
-                Gerando...
+                A gerar...
               </>
             ) : (
               "Gerar Newsletter"

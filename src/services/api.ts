@@ -38,23 +38,23 @@ export const generateNewsletter = async (topics: string): Promise<Newsletter | n
   }
 };
 
-// Mock helper functions to simulate Gemini API responses (in Portuguese)
+// Mock helper functions to simulate Gemini API responses (in European Portuguese)
 function generateMockTitle(topics: string): string {
   const topicsLower = topics.toLowerCase();
   
   if (topicsLower.includes("tecnologia")) {
-    return "Inovação Tecnológica: Transformando o Futuro dos Negócios";
+    return "Inovação Tecnológica: A Transformar o Futuro dos Negócios";
   } else if (topicsLower.includes("saúde") || topicsLower.includes("saude")) {
-    return "Bem-estar em Foco: Novidades e Dicas para uma Vida Saudável";
+    return "Bem-estar em Destaque: Novidades e Dicas para uma Vida Saudável";
   } else if (topicsLower.includes("finanças") || topicsLower.includes("financas")) {
-    return "Panorama Financeiro: Estratégias para Prosperidade Corporativa";
+    return "Panorama Financeiro: Estratégias para a Prosperidade Empresarial";
   } else {
-    return `Informativo ${topics.split(" ")[0]}: Novidades e Perspectivas para 2024`;
+    return `Informativo ${topics.split(" ")[0]}: Novidades e Perspetivas para 2024`;
   }
 }
 
 function generateMockIntroduction(topics: string): string {
-  return `Olá, prezados leitores!\n\nÉ com grande satisfação que apresentamos mais uma edição da nossa newsletter sobre ${topics}. Nesta edição, abordaremos temas relevantes que estão moldando nosso setor e trazendo novas oportunidades para todos os envolvidos.\n\nPreparados para explorar as últimas novidades? Vamos começar!`;
+  return `Olá, caros leitores!\n\nÉ com grande satisfação que apresentamos mais uma edição da nossa newsletter sobre ${topics}. Nesta edição, iremos abordar temas relevantes que estão a moldar o nosso setor e a trazer novas oportunidades para todos os envolvidos.\n\nPreparados para explorar as últimas novidades? Vamos começar!`;
 }
 
 function generateMockSections(topics: string): NewsletterSection[] {
@@ -63,12 +63,12 @@ function generateMockSections(topics: string): NewsletterSection[] {
   return topicsArray.map((topic, index) => {
     return {
       title: `${index === 0 ? "Principais" : "Outras"} Novidades sobre ${topic}`,
-      content: `No cenário atual de ${topic}, estamos observando tendências significativas que merecem atenção. Estudos recentes indicam um crescimento de 23% neste segmento, com empresas inovadoras liderando as mudanças no mercado.\n\nEspecialistas apontam que investimentos em pesquisa e desenvolvimento estão trazendo resultados promissores, especialmente na área de sustentabilidade e eficiência operacional. Como resultado, observamos uma maior adaptabilidade das organizações frente aos desafios contemporâneos.`,
-      imageDescription: `Imagem profissional relacionada a ${topic} - Pessoas em ambiente corporativo discutindo sobre inovação e estratégias de crescimento, com gráficos de crescimento ao fundo.`
+      content: `No cenário atual de ${topic}, estamos a observar tendências significativas que merecem atenção. Estudos recentes indicam um crescimento de 23% neste segmento, com empresas inovadoras a liderar as mudanças no mercado.\n\nEspecialistas apontam que investimentos em investigação e desenvolvimento estão a trazer resultados promissores, especialmente na área de sustentabilidade e eficiência operacional. Como resultado, observamos uma maior adaptabilidade das organizações face aos desafios contemporâneos.`,
+      imageDescription: `Imagem profissional relacionada com ${topic} - Pessoas em ambiente empresarial a discutir sobre inovação e estratégias de crescimento, com gráficos de crescimento em segundo plano.`
     };
   });
 }
 
 function generateMockCTA(topics: string): string {
-  return `Quer saber mais sobre como implementar estas estratégias em sua empresa? Entre em contato conosco hoje mesmo e agende uma consultoria especializada em ${topics}. Nossa equipe está pronta para ajudar sua organização a alcançar novos patamares de sucesso!`;
+  return `Quer saber mais sobre como implementar estas estratégias na sua empresa? Contacte-nos hoje mesmo e agende uma consultoria especializada em ${topics}. A nossa equipa está pronta para ajudar a sua organização a alcançar novos patamares de sucesso!`;
 }

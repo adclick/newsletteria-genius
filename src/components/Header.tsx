@@ -12,7 +12,7 @@ const Header = () => {
           <h1 className="text-2xl font-bold text-gray-900">Newsletteria</h1>
         </div>
         <div className="text-newsletteria-gray text-sm">
-          Gerador de newsletters em português
+          Gerador de newsletters em português de Portugal
         </div>
       </div>
     </header>
