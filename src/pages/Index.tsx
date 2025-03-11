@@ -43,7 +43,7 @@ const Index = () => {
         </div>
       </main>
       <footer className="py-6 border-t border-gray-200 mt-10">
-        <div className="container mx-auto px-4 text-center text-sm text-gray-500">© 2024 Newsletteria - Gerador de newsletters</div>
+        <div className="container mx-auto px-4 text-center text-sm text-gray-500">© 2025 Newsletteria - Gerador de newsletters</div>
       </footer>
     </div>;
 };
