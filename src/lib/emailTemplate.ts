@@ -39,7 +39,7 @@ export const generateEmailHtml = (newsletter: Newsletter): string => {
                       ${section.title}
                     </h2>
                     <div style="font-size: 16px; line-height: 1.6; color: #4b5563; margin-bottom: 20px;">
-                      ${section.content.split('\n').map(paragraph => 
+                      ${section.content.split('\n').map(paragraph =>
                         `<p style="margin: 0 0 15px 0;">${paragraph}</p>`
                       ).join('')}
                     </div>
@@ -62,7 +62,7 @@ export const generateEmailHtml = (newsletter: Newsletter): string => {
               <table role="presentation" style="width: 100%; background-color: #dbeafe; border-radius: 6px;">
                 <tr>
                   <td style="padding: 20px;">
-                    <h2 style="color: #1d4ed8; font-size: 20px; margin: 0 0 15px 0;">Chamada para Ação</h2>
+                    <h2 style="color: #1d4ed8; font-size: 20px; margin: 0 0 15px 0;">Call to Action</h2>
                     <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #1e40af;">
                       ${newsletter.callToAction}
                     </p>
@@ -87,4 +87,4 @@ export const generateEmailHtml = (newsletter: Newsletter): string => {
 </body>
 </html>
   `.trim();
-}; 
+};

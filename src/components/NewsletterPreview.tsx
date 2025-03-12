@@ -29,7 +29,7 @@ ${section.content}
 Sugestão de imagem: ${section.imageDescription}
 `).join('\n')}
 
-## Chamada para Ação
+## Call to Action
 
 ${newsletter.callToAction}
     `;
@@ -70,9 +70,9 @@ ${newsletter.callToAction}
               </TabsTrigger>
             </TabsList>
             {activeTab !== 'preview' && (
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 className="flex items-center gap-1"
                 onClick={activeTab === 'text' ? copyTextContent : copyHtmlContent}
               >
@@ -101,7 +101,7 @@ ${newsletter.callToAction}
               ))}
               
               <div className="bg-newsletteria-blue/5 p-4 rounded-md border border-newsletteria-blue/20">
-                <h2 className="text-newsletteria-blue">Chamada para Ação</h2>
+                <h2 className="text-newsletteria-blue">Call to Action</h2>
                 <div className="whitespace-pre-line">{newsletter.callToAction}</div>
               </div>
             </div>
